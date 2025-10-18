@@ -12,9 +12,10 @@ theme = "rahul" # huge thanks to Rahul R. Nadkarni ;)
     linkedin = "https://linkedin.com/in/aditya-kgupta"
     twitter = "https://x.com/aditya_kgupta"
     mainSections = ["posts"]
+    description = "Things I read"
 
 [outputs]
 home = ["HTML", "JSON", "RSS"]
-section = ["HTML", "RSS"]
-taxonomy = ["HTML", "RSS"]
-term = ["HTML", "RSS"]
+section = ["HTML"]
+taxonomy = ["HTML"]
+term = ["HTML"]
