@@ -11,7 +11,7 @@
             <a href="{{ .Permalink }}" class="card-link" data-title="{{ .Title }}" aria-label="Read: {{ .Title }}">
                 <div class="featured-post">
                     {{ $image := .Resources.GetMatch "cover.*" }}
-                {{ if $image }}
+                    {{ if $image }}
                     {{ $alt := or .Params.coverAlt (printf "Cover image for %s" .Title) }}
                     {{ $w := 1200 }}
                     {{ $sizes := slice 400 700 900 1200 }}
@@ -23,7 +23,7 @@
                     <div class="featured-image-container">
                         <img src="{{ ($image.Fit (printf "%dx" $w)).RelPermalink }}" srcset="{{ delimit $srcset ", " }}" sizes="(max-width: 820px) 100vw, 50vw" alt="{{ $alt }}" loading="lazy" decoding="async">
                     </div>
-                {{ end }}
+                    {{ end }}
                     <div class="featured-content">
                         {{ with .Params.tags }}
                         {{ $first := index . 0 }}

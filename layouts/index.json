@@ -2,7 +2,7 @@
 {{- range where .Site.RegularPages "Type" "not in" (slice "page" "json") -}}
   {{- if and (not .Draft) (not .Params.private) -}}
     {{- $tags := .Params.tags | default (slice) -}}
-    {{- $summary := .Summary | default (.Plain | truncate 300) -}}
+    {{- $summary := .Plain | truncate 300 -}}
     {{- $index = $index | append (dict 
           "title" .Title
           "tags" $tags
