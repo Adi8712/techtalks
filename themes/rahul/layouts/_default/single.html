@@ -5,18 +5,34 @@
             <div class="breadcrumbs">
                 <a href="/">Blogs</a> &gt;
                 {{ with .Params.tags }}
-                <a href="{{ "/tags/" | relLangURL }}{{ index . 0 | urlize }}">{{ index . 0 | upper }}</a> &gt;
+                {{ $first := index . 0 }}
+                {{ with (index $.Site.Taxonomies.tags (lower $first)) }}
+                <a href="{{ .Page.Permalink }}">{{ .Page.Title | upper }}</a> &gt;
+                {{ end }}
                 {{ end }}
                 <span title="{{ .Title }}">{{ .Title | truncate 20 }}</span>
             </div>
             <h1>{{ .Title }}</h1>
-            <span class="post-meta">{{ .Date.Format "January 2, 2006" }}</span>
+            <span class="post-meta">
+                {{ .Date.Format "January 2, 2006" }}
+                {{ with .Lastmod }}
+                · Updated {{ .Format "Jan 2, 2006" }}
+                {{ end }}
+            </span>
         </header>
 
         {{ $image := .Resources.GetMatch "cover.*" }}
         {{ if $image }}
+        {{ $alt := or .Params.coverAlt (printf "Cover image for %s" .Title) }}
+        {{ $w := 1200 }}
+        {{ $sizes := slice 600 800 1000 1200 }}
+        {{ $srcset := slice }}
+        {{ range $sizes }}
+            {{ $res := $image.Fit (printf "%dx" .) }}
+            {{ $srcset = $srcset | append (printf "%s %dw" $res.RelPermalink .) }}
+        {{ end }}
         <div class="post-main-image-container">
-            <img src="{{ $image.Permalink }}" alt="Cover image for {{ .Title }}" class="post-main-image" loading="lazy" decoding="async">
+            <img src="{{ ($image.Fit (printf "%dx" $w)).RelPermalink }}" srcset="{{ delimit $srcset ", " }}" sizes="(max-width: 900px) 100vw, 740px" alt="{{ $alt }}" class="post-main-image" loading="lazy" decoding="async">
         </div>
         {{ end }}
 

@@ -2,7 +2,7 @@
 title: "Branching in ChatGPT: The Quiet Feature That Could Reshape How We Work With AI"
 date: 2025-09-06T11:00:00+05:30
 draft: false
-tags: ["AI/ML"]
+tags: ["AI"]
 ---
 
 When OpenAI introduced a new capability, the internet usually explodes. GPT-5 rumors trend, new multimedia features go viral, and early demos flood social media. But sometimes the biggest shifts don't come with fanfare. They arrive quietly, almost unnoticed, as a subtle tweak to the user interface.

@@ -49,14 +49,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const row = document.createElement("a");
       row.className = "result-item";
       row.setAttribute("role", "option");
-      row.setAttribute("aria-selected", i === activeIndex ? "true" : "false");
       row.setAttribute("tabindex", "-1");
-      row.href = r.item.permalink || r.item.permalink || "#";
+      row.href = r.item.permalink || "#";
       row.textContent = r.item.title || "(untitled)";
-      row.addEventListener("click", () => clearResults());
-      row.addEventListener("mouseenter", () => {
-        setActive(i);
-      });
+      row.addEventListener("click", clearResults);
+      row.addEventListener("mouseenter", () => setActive(i));
       resultsContainer.appendChild(row);
     });
 

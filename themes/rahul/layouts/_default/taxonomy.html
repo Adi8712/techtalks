@@ -1,9 +1,7 @@
 {{ define "main" }}
 <div class="container">
     <div class="page-header">
-        <h1>{{ .Title }}</h1>
-        <p>Articles and notes tagged with '{{ .Title }}'.</p>
-    </div>
+        <h1>{{ .Title }}</h1>    </div>
     <div class="post-list">
         {{ range .Pages.ByDate.Reverse }}
             {{ partial "post-card.html" . }}

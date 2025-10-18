@@ -1,25 +1,11 @@
 {{ define "main" }}
-{{ $regularPages := where .Pages "Kind" "page" }}
-{{ if eq (len $regularPages) 0 }}
-<div class="container">
-  <section class="wip-page">
-    <div class="wip-content">
-      <h1>OOPS</h1>
-      <h2>Work in Progress</h2>
-      <div class="wip-note">
-        <p><em>Feel free to explore my <a href="{{ "/posts/" | relURL }}">posts</a> or <a href="{{ "/tags/" | relURL }}">browse by tags</a>.</em></p>
-      </div>
-    </div>
-  </section>
-</div>
-{{ else }}
 <div class="container">
     <div class="page-header">
-        <h1>{{ .Title }}</h1>
-        <p>{{ if eq .Section "posts" }}Everything there is{{ else }}Tags with '{{ .Title }}'.{{ end }}</p>
+        <p>Hi, I'm Aditya</p>
     </div>
     
-    {{ $pages := .Pages.ByDate.Reverse }}
+    {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections | default .Pages }}
+    {{ $pages = $pages.ByDate.Reverse }}
     {{ with first 1 $pages }}
         {{ range . }}
             <a href="{{ .Permalink }}" class="card-link" data-title="{{ .Title }}" aria-label="Read: {{ .Title }}">
@@ -53,13 +39,20 @@
         {{ end }}
     {{ end }}
 
-    {{ if gt (len $pages) 1 }}
+    <nav class="category-nav">
+        <a href="/posts/">All Posts</a>
+        <a href="/notes/">Notes</a>
+        {{ $featuredTags := 5 }}
+        {{ range first $featuredTags (where .Site.Taxonomies.tags.ByCount "Term" "ne" "notes") }}
+            <a href="{{ .Page.Permalink }}">{{ .Page.Title | upper }}</a>
+        {{ end }}
+        <a href="/tags/" class="all-tags-link">Tags &rarr;</a>
+    </nav>
+
     <div class="post-list">
         {{ range after 1 $pages }}
             {{ partial "post-card.html" . }}
         {{ end }}
     </div>
-    {{ end }}
 </div>
-{{ end }}
 {{ end }}

@@ -2,7 +2,10 @@
     <a href="{{ .Permalink }}" class="card-link" data-title="{{ .Title }}" aria-label="Read: {{ .Title }}">
     <div class="card-content">
         {{ with .Params.tags }}
-        <span class="post-meta">{{ index . 0 | upper }} / {{ $.Date.Format "Jan 2, 2006" }}</span>
+        {{ $first := index . 0 }}
+        {{ with (index $.Site.Taxonomies.tags (lower $first)) }}
+        <span class="post-meta">{{ .Page.Title | upper }} / {{ $.Date.Format "Jan 2, 2006" }}</span>
+        {{ end }}
         {{ end }}
             <h3>{{ .Title }}</h3>
             <p class="card-excerpt">{{ .Summary | plainify | truncate 180 }}</p>
