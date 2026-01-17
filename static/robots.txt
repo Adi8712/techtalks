@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://adi8712.github.io/sitemap.xml
+Sitemap: https://adityakgupta.in/sitemap.xml
 

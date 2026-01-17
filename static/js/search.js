@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let results = [];
   let activeIndex = -1;
 
-  fetch("/index.json")
+  const indexURL = window.searchIndexURL || "index.json";
+  fetch(indexURL)
     .then(res => {
       if (!res.ok) throw new Error("Could not fetch search index");
       return res.json();

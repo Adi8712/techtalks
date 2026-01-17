@@ -40,13 +40,13 @@
     {{ end }}
 
     <nav class="category-nav">
-        <a href="/posts/">All Posts</a>
-        <a href="/notes/">Notes</a>
+        <a href="{{ "posts/" | relURL }}">All Posts</a>
+        <a href="{{ "notes/" | relURL }}">Notes</a>
         {{ $featuredTags := 5 }}
         {{ range first $featuredTags (where .Site.Taxonomies.tags.ByCount "Term" "ne" "notes") }}
             <a href="{{ .Page.Permalink }}">{{ .Page.Title | upper }}</a>
         {{ end }}
-        <a href="/tags/" class="all-tags-link">Tags &rarr;</a>
+        <a href="{{ "tags/" | relURL }}" class="all-tags-link">Tags &rarr;</a>
     </nav>
 
     <div class="post-list">

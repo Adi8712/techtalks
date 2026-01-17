@@ -3,7 +3,7 @@
     <article class="single-post">
         <header class="post-header">
             <div class="breadcrumbs">
-                <a href="/">Blogs</a> &gt;
+                <a href="{{ "" | relURL }}">Blogs</a> &gt;
                 {{ with .Params.tags }}
                 {{ $first := index . 0 }}
                 {{ with (index $.Site.Taxonomies.tags (lower $first)) }}
