@@ -2,7 +2,7 @@
     <div class="container">
         <div class="header-content" role="banner">
             <div class="header-left">
-                <a href="{{ .Site.BaseURL }}" class="logo">Tech Talks</a>
+                <a href="{{ .Site.BaseURL }}" class="logo">{{ .Site.Title }}</a>
             </div>
             <div class="header-center">
                 <div class="search-container">
@@ -11,7 +11,6 @@
                 </div>
             </div>
             <div class="header-right">
-                {{- partial "socials.html" . -}}
                 {{- partial "theme-toggle.html" . -}}
             </div>
         </div>

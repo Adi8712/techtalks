@@ -2,6 +2,12 @@ baseURL = "https://adityakgupta.in/"
 languageCode = "en-us"
 title = "Tech Talks"
 theme = "rahul" # huge thanks to Rahul R. Nadkarni ;)
+enableGitInfo = true
+canonifyURLs = true
+
+[markup]
+  [markup.tableOfContents]
+    endLevel = 6
 
 [taxonomies]
     tag = "tags"

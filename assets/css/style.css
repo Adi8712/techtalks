@@ -7,7 +7,6 @@
     --accent-color: #7a5cfa;
     --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --article-width: 740px;
-    --toc-width: 300px;
     --toc-gap: 40px;
 }
 
@@ -107,13 +106,9 @@ header {
 }
 
 .social-links svg {
-    color: var(--secondary-text-color);
+    color: var(--text-color);
     height: 22px;
     width: 22px;
-}
-
-.social-links a:hover svg {
-    color: var(--text-color);
 }
 
 .theme-toggle {
@@ -188,7 +183,6 @@ header {
 .post-meta {
     font-size: 0.8rem;
     color: var(--secondary-text-color);
-    text-transform: uppercase;
     padding: 10px 15px 0;
 }
 
@@ -370,7 +364,6 @@ header {
     position: fixed;
     top: calc(var(--site-header-height, 80px) + 20px);
     left: calc(50% + (var(--article-width)/2) + var(--toc-gap));
-    width: var(--toc-width);
     background: var(--card-bg-color);
     border: 1px solid var(--border-color);
     border-radius: 8px;
@@ -378,26 +371,25 @@ header {
     max-height: calc(100vh - (var(--site-header-height, 80px) + 60px));
     overflow-y: auto;
     z-index: 20;
-}
-
-.toc {
     font-size: 0.9rem;
 }
 
+.toc {
+    padding-bottom: 10px;
+}
+
 .toc h4 {
-    margin-top: 0;
+    margin: 0;
     font-weight: 500;
 }
 
 .toc ul {
     list-style-type: none;
     padding-left: 0;
-    margin: 1em 0;
 }
 
 .toc ul ul li {
     padding-left: 15px;
-    border-left: 2px solid var(--border-color);
 }
 
 .toc a {
@@ -410,29 +402,18 @@ header {
     color: var(--text-color);
 }
 
-.toc .share-buttons {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border-color);
-}
-
-.toc .share-buttons h4 {
-    margin-bottom: 15px;
-}
-
-.toc .share-buttons a {
-    display: inline-block;
-    padding: 6px 14px;
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    margin-right: 8px;
-    font-size: 0.85rem;
+.share-buttons h4 {
+    margin-top: 0px;
     font-weight: 500;
 }
 
-.toc .share-buttons a:hover {
+.share-buttons a {
+    display: inline-block;
+    padding: 6px 14px;
+}
+
+.share-buttons a:hover {
     background-color: var(--card-bg-color);
-    border-color: var(--text-color);
 }
 
 @media (max-width: 1280px) {
@@ -518,6 +499,10 @@ header {
 
 .theme-toggle .sun-svg {
     color: #f39c12;
+}
+
+.theme-toggle .moon-svg {
+    color: var(--text-color);
 }
 
 html.light-mode .sun-icon {

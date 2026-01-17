@@ -4,7 +4,7 @@
         <p>Hi, I'm Aditya</p>
     </div>
     
-    {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections | default .Pages }}
+    {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
     {{ $pages = $pages.ByDate.Reverse }}
     {{ with first 1 $pages }}
         {{ range . }}
@@ -28,7 +28,7 @@
                         {{ with .Params.tags }}
                         {{ $first := index . 0 }}
                         {{ with (index $.Site.Taxonomies.tags (lower $first)) }}
-                        <span class="post-meta">{{ .Page.Title | upper }} / {{ $.Date.Format "Jan 2, 2006" }}</span>
+                        <span class="post-meta">{{ .Page.Title }} / {{ $.Date.Format "Jan 2, 2006" }}</span>
                         {{ end }}
                         {{ end }}
                         <h2>{{ .Title }}</h2>
@@ -41,10 +41,10 @@
 
     <nav class="category-nav">
         <a href="{{ "posts/" | relURL }}">All Posts</a>
-        <a href="{{ "notes/" | relURL }}">Notes</a>
+        <a href="{{ "board/" | relURL }}">Board</a>
         {{ $featuredTags := 5 }}
-        {{ range first $featuredTags (where .Site.Taxonomies.tags.ByCount "Term" "ne" "notes") }}
-            <a href="{{ .Page.Permalink }}">{{ .Page.Title | upper }}</a>
+        {{ range first $featuredTags (where .Site.Taxonomies.tags.ByCount "Term" "ne" "board") }}
+            <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
         {{ end }}
         <a href="{{ "tags/" | relURL }}" class="all-tags-link">Tags &rarr;</a>
     </nav>

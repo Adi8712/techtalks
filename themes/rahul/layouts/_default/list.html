@@ -42,7 +42,7 @@
                         {{ with .Params.tags }}
                         {{ $first := index . 0 }}
                         {{ with (index $.Site.Taxonomies.tags (lower $first)) }}
-                        <span class="post-meta">{{ .Page.Title | upper }} / {{ $.Date.Format "Jan 2, 2006" }}</span>
+                        <span class="post-meta">{{ .Page.Title }} / {{ $.Date.Format "Jan 2, 2006" }}</span>
                         {{ end }}
                         {{ end }}
                         <h2>{{ .Title }}</h2>
