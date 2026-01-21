@@ -5,7 +5,7 @@
     --secondary-text-color: #555555;
     --border-color: #eaeaea;
     --accent-color: #7a5cfa;
-    --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --article-width: 740px;
     --toc-gap: 40px;
 }
@@ -55,7 +55,7 @@ blockquote {
     border-left: 2px solid var(--secondary-text-color);
     padding-inline: 10px;
     font-style: italic;
-    
+
     blockquote {
         border-left: 0px;
         margin-inline: -20px;
@@ -208,7 +208,7 @@ figure {
 }
 
 .post-card:hover {
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .card-image {
@@ -301,7 +301,7 @@ figure {
 }
 
 .featured-post:hover {
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .featured-image-container img {
@@ -406,7 +406,7 @@ figure {
 .toc-container {
     position: fixed;
     top: calc(var(--site-header-height, 80px) + 20px);
-    left: calc(50% + (var(--article-width)/2) + var(--toc-gap));
+    left: calc(50% + (var(--article-width) / 2) + var(--toc-gap));
     background: var(--card-bg-color);
     border: 1px solid var(--border-color);
     border-radius: 8px;
@@ -609,7 +609,6 @@ footer {
     color: var(--text-color);
 }
 
-
 .wip-actions,
 .error-actions {
     display: flex;
@@ -714,14 +713,14 @@ footer {
         gap: 12px;
     }
 
-    .header-center { 
-        flex: 1 0 100%; 
-        order: 3; 
-        justify-content: center; 
+    .header-center {
+        flex: 1 0 100%;
+        order: 3;
+        justify-content: center;
     }
-    
-    .search-container { 
-        flex: 0 0 auto; 
+
+    .search-container {
+        flex: 0 0 auto;
     }
 
     .search-bar {
@@ -804,13 +803,13 @@ footer {
     .error-page {
         padding: 40px 0;
     }
-    
+
     .wip-actions,
     .error-actions {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .wip-page .button,
     .error-page .button {
         width: 200px;
