@@ -24,4 +24,5 @@ description: "A reading list that I will keep procrastinating about :("
 - [Exploring SHA Instructions and Its Application to AES-based Schemes](https://cic.iacr.org/p/2/3/28/pdf)
 - [File Systems as Processes](https://research.cs.wisc.edu/adsl/Publications/hotstor19-fsp.pdf)
 - [Programming Paradigms for Dummies: What Every Programmer Should Know](https://webperso.info.ucl.ac.be/~pvr/VanRoyChapter.pdf)
+- [Readings in Database Systems](http://www.redbook.io/)
 - [What Every Programmer Should Know About Memory](https://people.freebsd.org/~lstewart/articles/cpumemory.pdf)

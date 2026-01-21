@@ -1,16 +1,16 @@
 {{ define "main" }}
-<div class="container">
-    <div class="page-header">
-        <h1>{{ .Title }}</h1>
-        <p>Pick your topic</p>
+    <div class="container">
+        <div class="page-header">
+            <h1>{{ .Title }}</h1>
+            <p>Pick your topic</p>
+        </div>
+        <div class="tags-list">
+            {{ range .Data.Terms.ByCount }}
+                <a href="{{ .Page.Permalink }}" class="tag-item">
+                    <span class="tag-name">{{ .Page.Title }}</span>
+                    <span class="tag-count">{{ .Count }} posts</span>
+                </a>
+            {{ end }}
+        </div>
     </div>
-    <div class="tags-list">
-        {{ range .Data.Terms.ByCount }}
-        <a href="{{ .Page.Permalink }}" class="tag-item">
-            <span class="tag-name">{{ .Page.Title }}</span>
-            <span class="tag-count">{{ .Count }} posts</span>
-        </a>
-        {{ end }}
-    </div>
-</div>
 {{ end }}

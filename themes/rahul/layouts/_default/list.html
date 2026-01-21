@@ -1,65 +1,65 @@
 {{ define "main" }}
-{{ $regularPages := where .Pages "Kind" "page" }}
-{{ if eq (len $regularPages) 0 }}
-<div class="container">
-  <section class="wip-page">
-    <div class="wip-content">
-      <h1>OOPS</h1>
-      <h2>Work in Progress</h2>
-      <div class="wip-note">
-        <p><em>Feel free to explore my <a href="{{ "posts/" | relURL }}">posts</a> or <a href="{{ "tags/" | relURL }}">browse by tags</a>.</em></p>
-      </div>
-    </div>
-  </section>
-</div>
-{{ else }}
-<div class="container">
-    <div class="page-header">
-        <h1>{{ .Title }}</h1>
-        <p>{{ if eq .Section "posts" }}Everything there is{{ else }}Tags with '{{ .Title }}'.{{ end }}</p>
-    </div>
-    
-    {{ $pages := .Pages.ByDate.Reverse }}
-    {{ with first 1 $pages }}
-        {{ range . }}
-            <a href="{{ .Permalink }}" class="card-link" data-title="{{ .Title }}" aria-label="Read: {{ .Title }}">
-                <div class="featured-post">
-                    {{ $image := .Resources.GetMatch "cover.*" }}
-                {{ if $image }}
-                    {{ $alt := or .Params.coverAlt (printf "Cover image for %s" .Title) }}
-                    {{ $w := 1200 }}
-                    {{ $sizes := slice 400 700 900 1200 }}
-                    {{ $srcset := slice }}
-                    {{ range $sizes }}
-                        {{ $res := $image.Fit (printf "%dx" .) }}
-                        {{ $srcset = $srcset | append (printf "%s %dw" $res.RelPermalink .) }}
-                    {{ end }}
-                    <div class="featured-image-container">
-                        <img src="{{ ($image.Fit (printf "%dx" $w)).RelPermalink }}" srcset="{{ delimit $srcset ", " }}" sizes="(max-width: 820px) 100vw, 50vw" alt="{{ $alt }}" loading="lazy" decoding="async">
-                    </div>
+    {{ $regularPages := where .Pages "Kind" "page" }}
+    {{ if eq (len $regularPages) 0 }}
+        <div class="container">
+        <section class="wip-page">
+            <div class="wip-content">
+            <h1>OOPS</h1>
+            <h2>Work in Progress</h2>
+            <div class="wip-note">
+                <p>Feel free to explore my <a href="{{ "posts/" | relURL }}">posts</a> or <a href="{{ "tags/" | relURL }}">browse by tags</a></p>
+            </div>
+            </div>
+        </section>
+        </div>
+    {{ else }}
+        <div class="container">
+            <div class="page-header">
+                <h1>{{ .Title }}</h1>
+                <p>{{ if eq .Section "posts" }}Everything there is{{ else }}Tags with '{{ .Title }}'.{{ end }}</p>
+            </div>
+            
+            {{ $pages := .Pages.ByDate.Reverse }}
+            {{ with first 1 $pages }}
+                {{ range . }}
+                    <a href="{{ .Permalink }}" class="card-link" data-title="{{ .Title }}" aria-label="Read: {{ .Title }}">
+                        <div class="featured-post">
+                            {{ $image := .Resources.GetMatch "cover.*" }}
+                            {{ if $image }}
+                                {{ $alt := or .Params.coverAlt (printf "Cover image for %s" .Title) }}
+                                {{ $w := 1200 }}
+                                {{ $sizes := slice 400 700 900 1200 }}
+                                {{ $srcset := slice }}
+                                {{ range $sizes }}
+                                    {{ $res := $image.Resize (printf "%dx" .) }}
+                                    {{ $srcset = $srcset | append (printf "%s %dw" $res.RelPermalink .) }}
+                                {{ end }}
+                                <div class="featured-image-container">
+                                    <img src="{{ ($image.Resize (printf "%dx" $w)).RelPermalink }}" srcset="{{ delimit $srcset ", " }}" sizes="(max-width: 820px) 100vw, 50vw" alt="{{ $alt }}" loading="lazy" decoding="async">
+                                </div>
+                            {{ end }}
+                            <div class="featured-content">
+                                {{ with .Params.tags }}
+                                    {{ $first := index . 0 }}
+                                    {{ with (index $.Site.Taxonomies.tags (lower $first)) }}
+                                        <span class="post-meta">{{ .Page.Title }} / {{ $.Date.Format "Jan 2, 2006" }}</span>
+                                    {{ end }}
+                                {{ end }}
+                                <h2>{{ .Title }}</h2>
+                                <p>{{ .Summary | plainify | truncate 180 }}</p>
+                            </div>
+                        </div>
+                    </a>
                 {{ end }}
-                    <div class="featured-content">
-                        {{ with .Params.tags }}
-                        {{ $first := index . 0 }}
-                        {{ with (index $.Site.Taxonomies.tags (lower $first)) }}
-                        <span class="post-meta">{{ .Page.Title }} / {{ $.Date.Format "Jan 2, 2006" }}</span>
-                        {{ end }}
-                        {{ end }}
-                        <h2>{{ .Title }}</h2>
-                        <p>{{ .Summary | plainify | truncate 180 }}</p>
-                    </div>
-                </div>
-            </a>
-        {{ end }}
+            {{ end }}
+        
+            {{ if gt (len $pages) 1 }}
+            <div class="post-list">
+                {{ range after 1 $pages }}
+                    {{ partial "post-card.html" . }}
+                {{ end }}
+            </div>
+            {{ end }}
+        </div>
     {{ end }}
-
-    {{ if gt (len $pages) 1 }}
-    <div class="post-list">
-        {{ range after 1 $pages }}
-            {{ partial "post-card.html" . }}
-        {{ end }}
-    </div>
-    {{ end }}
-</div>
-{{ end }}
 {{ end }}

@@ -51,6 +51,45 @@ header {
     background-color: var(--bg-color);
 }
 
+blockquote {
+    border-left: 2px solid var(--secondary-text-color);
+    padding-inline: 10px;
+    font-style: italic;
+    
+    blockquote {
+        border-left: 0px;
+        margin-inline: -20px;
+        /*margin-block-end: -20px;*/
+        padding: 0px;
+    }
+}
+
+blockquote:has(blockquote) {
+    border-left: 0;
+}
+
+figure {
+    margin: 0px;
+    margin-block: 30px;
+    img {
+        width: 100%;
+        max-width: 100%;
+        background-color: white;
+        border-radius: 20px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    figcaption {
+        text-align: center;
+        font-style: italic;
+        font-size: 14px;
+        margin-top: -15px;
+        h4 {
+            font-weight: 400;
+        }
+    }
+}
+
 .header-content {
     display: flex;
     justify-content: space-between;
@@ -289,15 +328,19 @@ header {
     text-align: center;
     margin: 40px auto 60px;
     max-width: 700px;
-}
-
-.page-header h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
+    color: var(--secondary-text-color);
 }
 
 .page-header p {
     font-size: 1.2rem;
+}
+
+.credits {
+    font-style: italic;
+}
+
+.credits a {
+    text-decoration: underline;
     color: var(--secondary-text-color);
 }
 
@@ -533,6 +576,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     color: var(--secondary-text-color);
+    font-style: italic;
 }
 
 .wip-page,
@@ -622,6 +666,7 @@ footer {
 .wip-note p {
     margin: 0;
     font-size: 1rem;
+    font-style: italic;
 }
 
 .wip-note a {

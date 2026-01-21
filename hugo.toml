@@ -8,6 +8,13 @@ canonifyURLs = true
 [markup]
   [markup.tableOfContents]
     endLevel = 6
+    [markup.goldmark]
+    [markup.goldmark.extensions]
+        [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+            block = [['\[', '\]'], ['$$', '$$']]
+            inline = [['\(', '\)']]
 
 [taxonomies]
     tag = "tags"
@@ -19,6 +26,7 @@ canonifyURLs = true
     twitter = "https://x.com/aditya_kgupta"
     mainSections = ["posts"]
     description = "Things I read"
+    designer = "https://rahulrn.framer.website/"
 
 [outputs]
 home = ["HTML", "JSON", "RSS"]
