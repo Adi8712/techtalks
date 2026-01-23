@@ -34,19 +34,6 @@ jobs:
         with:
           root_file: main.tex
           working_directory: resume
-          compiler: pdflatex
-      
-      - name: Compile resume
-        uses: xu-cheng/latex-action@v4
-        with:
-          root_file: main.tex
-          working_directory: resume
-      
-      - name: Logs
-        if: failure()
-        run: |
-          echo "--- Logs ---"
-          cat resume/main.log || echo "No logs found"
           
       - name: Add resume
         run: cp resume/main.pdf static/resume.pdf
