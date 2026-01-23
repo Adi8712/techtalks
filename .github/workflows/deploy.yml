@@ -28,6 +28,15 @@ jobs:
         with:
           hugo-version: '0.142.0'
           extended: true
+      
+      - name: Compile resume
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: main.tex
+          working_directory: resume
+          
+      - name: Add resume
+        run: cp resume/main.pdf static/resume.pdf
 
       - name: Build
         run: hugo --minify

@@ -1,0 +1,186 @@
+\DocumentMetadata{uncompress}
+\documentclass[a4paper,11pt]{article}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{paralist}
+\usepackage[inline]{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\input{glyphtounicode}
+
+
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\textheight}{1.5in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeAchievementheading}[2]{
+    \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & {#2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+
+\begin{document}
+
+    \begin{center}
+        {\Huge \scshape Aditya Kumar Gupta} \\ \vspace{5pt}
+        \small 
+        \href{tel:+919832541449}{\raisebox{-0.2\height}\faPhone\ \underline{9832541449}} ~ 
+        \href{mailto:22bcs012@iiitdmj.ac.in}{\raisebox{-0.2\height}\faEnvelope\  \underline{22bcs012@iiitdmj.ac.in}} ~ 
+        \href{https://linkedin.com/in/aditya-kgupta/}{\raisebox{-0.2\height}\faLinkedin\ \underline{aditya-kgupta}}  ~
+        \href{https://github.com/Adi8712}{\raisebox{-0.2\height}\faGithub\ \underline{Adi8712}}
+        \vspace{-8pt}
+    \end{center}
+    
+    \section{Education}
+        \resumeSubHeadingListStart
+            \resumeSubheading
+            {Indian Institute of Information Technology}{Nov. 2022 -- Present}
+            {Bachelor of Technology - Computer Science Engineering}{Jabalpur, Madhya Pradesh}
+        \resumeSubHeadingListEnd
+    
+    \section{Relevant Coursework}
+        \begin{center}
+            \begin{itemize*}[itemjoin={\hfill}, afterlabel={\hspace{0.1cm}}]
+                \item\small Data Structures and Algorithms
+                \item Object Oriented Programming
+                \item Database Management
+                \item Operating System
+            \end{itemize*}
+            \vspace{-5pt}
+        \end{center}
+    
+    
+    \section{Technical Skills}
+        \textbf{Languages}{: JavaScript, Python, C++, Java, Kotlin, HTML/CSS } \\
+        \textbf{Libraries/Frameworks}{: ReactJS, Node.JS, Express, NestJS} \\
+        \textbf{Databases}{: SQL, MongoDB, Firebase} \\
+        \textbf{Developer Tools}{: AWS, Jenkins, Sentry, Android Studio, Kibana, Figma} \\
+        \textbf{Technologies}{: GitHub, Qiling, Qemu, Docker, Git}
+        \vspace{-8pt}
+    
+    \section{Experience}
+    \resumeSubHeadingListStart
+        \resumeSubheading
+            {smallcase}{Jul. 2025 -- Dec. 2025}
+            {Backend Engineering Intern}{remote}
+                \resumeItemListStart
+                    \resumeItem{Engineered automation system for content publishing with internal CMS platform}
+                    \resumeItem{Optimized alert system across multiple services and core logic to reduce technical debt}
+                    \resumeItem{Led database driver migration initiative to ensure backward compatibility and enable zero-downtime service upgrade}
+                \resumeItemListEnd
+    
+        \resumeSubheading
+            {Adizen}{May 2025 -- Jun. 2025}
+            {Full Stack Developer Intern }{remote}
+                \resumeItemListStart
+                    \resumeItem{Designed and implemented a template-based user onboarding framework, streamlining client setup and accelerating deployment timelines}
+                    \resumeItem{Built scalable CRM and campaign modules, supporting expansion from pilot to full-scale platform adoption}
+                    \resumeItem{Launched a unified notification system, improving message delivery reliability and campaign setup efficiency}
+                \resumeItemListEnd
+    
+        \resumeSubheading
+            {Munii}{May 2024 -- July 2024}
+            {Clojure Developer Intern}{remote}
+                \resumeItemListStart
+                    \resumeItem{Spearheaded development of Tag Manager, enabling flexible tag modification and enhanced custom user experiences}
+                    \resumeItem{Optimized backend data interactions and query performance to improve responsiveness}
+                    \resumeItem{Enhanced platform usability and navigation with intuitive UI design, driving higher user engagement}
+                    \resumeItem{Collaborated cross-functionally to deliver solutions aligned with user and design requirements}
+                \resumeItemListEnd
+    
+        \resumeSubheading
+            {IIIT Jabalpur}{Dec. 2023 -- Mar. 2024}
+            {Cybersecurity Research Intern}{onsite}
+                \resumeItemListStart
+                    \resumeItem{Automated malware identification and analysis using the Qiling framework, streamlining detection of complex signatures, patterns, and behaviors}
+                    \resumeItem{Conducted comprehensive testing and validation to ensure robust detection accuracy}
+                    \resumeItem{Documented implementation strategies and research results for security analyst utilization and future deployment}
+                \resumeItemListEnd
+    \resumeSubHeadingListEnd
+    \vspace{-16pt}
+    
+    \section{Achievements}
+        \resumeSubHeadingListStart
+            \resumeAchievementheading 
+            {\href{https://devfolio.co/projects/vulture-9607/}{MLH HackByte 2.0}}{\emph{First Runner Up}}
+                \resumeItemListStart
+                    \resumeItem{Achieved 2\textsuperscript{nd} position among 100 teams, selected from 2200 registrations}
+                \resumeItemListEnd
+        \resumeSubHeadingListEnd
+        \vspace{-15pt}
+    
+    \section{Projects}
+        \resumeSubHeadingListStart
+        \vspace{-6pt}
+            \resumeProjectHeading
+            {\textbf{Fusion} $|$ \emph{Django, PostgreSQL, React}}{{\href{https://github.com/Adi8712/Fusion-client/tree/sa-2}{\textit{Frontend}}} $|$ {\href{https://github.com/Adi8712/Fusion/tree/sa-2}{\textit{Backend}}}}
+                \resumeItemListStart
+                    \resumeItem{Led a team of 10 students to design and implement the Mess Management module, improving operational efficiency and user satisfaction across 1000+ students and caretakers}
+                    \resumeItem{Conducted code reviews and ensured high-quality standards, through automated tests and reducing bugs in production}
+                    \resumeItem{Collaborated with teams to ensure seamless integration between frontend and backend systems, ensuring stability and scalability}
+                \resumeItemListEnd 
+        \resumeSubHeadingListEnd
+        \vspace{-15pt}
+    
+    \section{Leadership / Extracurricular}
+        \resumeSubHeadingListStart
+            \resumeSubheading{GDSC Lead}{Sept. 2024 -- Sept. 2025}{\href{https://gdg.community.dev/gdg-on-campus-indian-institute-of-information-technology-design-and-manufacturing-jabalpur-india/}{Google Developer Student Clubs}}{IIIT Jabalpur}
+                \resumeItemListStart
+                    \resumeItem{Lead a community of 1200+ members, managing a team of 12 to organise events, workshops, and hackathons}
+                \resumeItemListEnd
+        \resumeSubHeadingListEnd
+\end{document}
