@@ -2,7 +2,7 @@
     <div class="container">
         <div class="page-header">
             <p>Hi, I'm Aditya</p>
-            <span class="credits">The best designer - <a href="{{ .Site.Params.designer | default "#" }}" target="_blank" aria-label="Designer">Rahul Nadkarni</a></span>
+            <span class="credits">The best designer - <a href="{{ .Site.Params.designer }}" target="_blank" aria-label="Designer">Rahul Nadkarni</a></span>
         </div>
         
         {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
