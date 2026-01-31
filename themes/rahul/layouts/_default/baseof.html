@@ -5,6 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Title | default .Site.Title }}</title>
+        
+    {{ $desc := .Description | default .Site.Params.description }}
+    <meta name="description" content="{{ $desc }}">
+    {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+    {{ with .Params.tags | default .Site.Params.tags }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
+    
+    <meta property="og:title" content="{{ .Title | default .Site.Title }}" />
+    <meta property="og:description" content="{{ $desc }}" />
+    <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    {{ with .Params.image | default .Site.Params.image }}<meta property="og:image" content="{{ . | absURL }}" />{{ end }}
+    <meta property="og:site_name" content="{{ .Site.Title }}" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="{{ .Title | default .Site.Title }}" />
+    <meta name="twitter:description" content="{{ $desc }}" />
+    {{ with .Params.image | default .Site.Params.image }}<meta name="twitter:image" content="{{ . | absURL }}" />{{ end }}
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "{{ if .IsPage }}BlogPosting{{ else }}WebSite{{ end }}",
+        "headline": "{{ .Title | default .Site.Title }}",
+        "description": "{{ $desc }}",
+        "url": "{{ .Permalink }}"{{ if .IsPage }},
+        "author": {
+        "@type": "Person",
+        "name": "{{ .Site.Params.author }}",
+        "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}"
+        }{{ end }}
+    }
+    </script>
 
     {{ if .IsPage }}
         <link rel="canonical" href="{{ .Permalink }}">

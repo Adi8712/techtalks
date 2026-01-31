@@ -27,6 +27,7 @@ canonifyURLs = true
     mainSections = ["posts"]
     description = "Things I read"
     designer = "https://rahulrn.framer.website/"
+    image = "images/main.png"
 
 [outputs]
 home = ["HTML", "JSON", "RSS"]
