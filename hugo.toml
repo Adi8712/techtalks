@@ -34,3 +34,7 @@ home = ["HTML", "JSON", "RSS"]
 section = ["HTML"]
 taxonomy = ["HTML"]
 term = ["HTML"]
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
