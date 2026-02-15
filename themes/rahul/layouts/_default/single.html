@@ -18,8 +18,8 @@
                     {{ with .Lastmod }}
                         &bull; Updated {{ .Format "Jan 2, 2006" }}
                     {{ end }}
+                    <p class="post-desc">{{ .Description }}</p>
                 </span>
-                <p>{{ .Description }}</p>
             </header>    
             <div class="post-content">
                 {{ .Content }}

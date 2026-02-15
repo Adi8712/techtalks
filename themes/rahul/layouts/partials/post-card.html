@@ -8,7 +8,7 @@
             {{ end }}
         {{ end }}
             <h3>{{ .Title }}</h3>
-            <p class="card-excerpt">{{ .Summary | plainify | truncate 180 }}</p>
+            <p class="card-excerpt">{{ .Description | default .Summary | plainify | truncate 180 }}</p>
     </div>
 </a>
 </div>

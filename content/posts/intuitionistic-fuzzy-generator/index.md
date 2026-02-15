@@ -1,14 +1,12 @@
-+++
-title = 'Intuitionistic Fuzzy Generator'
-date = '2026-01-18T02:56:40+05:30'
-tags = [ "fuzzy" ]
-description = ""
-draft = false
-math = true
-image = "images/ifg.png"
-+++
-
->> I took a course on Fuzzy Logic in my 7th semester. This is going to be a mix of my understanding of the course and the paper which I presented as the project work in the course.
+---
+title: 'Intuitionistic Fuzzy Generator'
+date: '2026-01-18T02:56:40+05:30'
+tags: [ "fuzzy" ]
+description: "I took a course on Fuzzy Logic in my 7th semester. This is going to be a mix of my understanding of the course and the paper which I presented as the project work in the course"
+draft: false
+math: true
+image: "images/ifg.png"
+---
 
 ### Is the temperature around you hot or cold?  
 At the time of writing this, I'll answer that it's almost cold. But what determines that it's "almost"? Obviously our senses and perhaps our mood but beyond that what's the reasoning?

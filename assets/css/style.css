@@ -63,16 +63,6 @@ blockquote {
     border-left: 2px solid var(--secondary-text-color);
     padding-inline: 10px;
     font-style: italic;
-
-    blockquote {
-        border-left: 0px;
-        margin-inline: -20px;
-        padding: 0px;
-    }
-}
-
-blockquote:has(blockquote) {
-    border-left: 0;
 }
 
 figure {
@@ -229,7 +219,11 @@ figure {
 .post-meta {
     font-size: 0.8rem;
     color: var(--secondary-text-color);
+    .post-desc {
+        font-size: 0.95rem;
+    }
 }
+
 
 .card-link {
     display: block;

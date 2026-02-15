@@ -1,21 +1,22 @@
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML -}}
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="https://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>{{ .Site.Title }}</title>
-    <link>{{ .Site.BaseURL | safeURL }}</link>
     <description>{{ .Site.Params.description }}</description>
-    <language>{{ .Site.Language.Lang }}</language>
-    <generator>{{ .Site.Params.author }}</generator>
+    <link>{{ .Site.BaseURL | safeURL }}</link>
+    <language>{{ .Site.LanguageCode }}</language>
+    <generator>Hugo</generator>
     <lastBuildDate>{{ now.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</lastBuildDate>
-    <atom:link href="{{ .Permalink | safeURL }}" rel="self" type="application/rss+xml"/>
+    <atom:link href="{{ (.OutputFormats.Get "RSS").Permalink | safeURL }}" rel="self" type="application/rss+xml"/>
 
     {{ range first 20 .Site.RegularPages.ByDate.Reverse }}
     <item>
-      <title>{{ .Title | htmlEscape }}</title>
-      <link>{{ .Permalink | safeURL }}</link>
+      <title>{{ .Title }}</title>
+      <description>{{ .Description | default .Summary | plainify }}</description>
       <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
+      <link>{{ .Permalink | safeURL }}</link>
       <guid isPermaLink="true">{{ .Permalink | safeURL }}</guid>
-      <description>{{ .Content | html }}</description>
+      <content:encoded>{{ printf "<p>%s</p>" .Content }}</content:encoded>
     </item>
     {{ end }}
   </channel>
