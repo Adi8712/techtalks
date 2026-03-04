@@ -2,7 +2,6 @@ baseURL = "https://www.adityakgupta.in/"
 languageCode = "en-GB"
 title = "Tech Talks"
 theme = "rahul" # huge thanks to Rahul R. Nadkarni ;)
-enableGitInfo = true
 canonifyURLs = true
 
 [markup]
