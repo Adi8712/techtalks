@@ -5,18 +5,19 @@
     --secondary-text-color: #555555;
     --border-color: #eaeaea;
     --accent-color: #7a5cfa;
-    --font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-sans:
+        "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif;
     --article-width: 740px;
     --toc-gap: 40px;
 }
 
 html.dark-mode {
     --bg-color: #121212;
-    --card-bg-color: #1e1e1e;
+    --card-bg-color: #171717;
     --text-color: #e0e0e0;
     --secondary-text-color: #aaaaaa;
     --border-color: #333333;
-    --accent-color: #7a5cfa;
 }
 
 * {
@@ -46,7 +47,6 @@ main {
 a {
     color: var(--text-color);
     text-decoration: none;
-    transition: color 0.2s;
 }
 
 a:hover {
@@ -119,7 +119,7 @@ figure {
     padding: 8px 12px;
     border-radius: 6px;
     border: 1px solid var(--border-color);
-    background-color: var(--card-bg-color);
+    background-color: var(--bg-color);
     color: var(--text-color);
     width: 300px;
     max-width: 100%;
@@ -128,7 +128,6 @@ figure {
 .search-bar:focus {
     outline: none;
     background-color: var(--bg-color);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color) 85%, transparent);
 }
 
 .search-bar::placeholder {
@@ -186,7 +185,7 @@ figure {
     width: 0;
     height: 4px;
     background-color: var(--accent-color);
-    z-index: 9999;
+    z-index: 10;
     transition: width 0.1s linear;
 }
 
@@ -201,11 +200,6 @@ figure {
     background-color: var(--card-bg-color);
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    transition: box-shadow 0.2s ease-out;
-}
-
-.post-card:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .card-image {
@@ -223,7 +217,6 @@ figure {
         font-size: 0.95rem;
     }
 }
-
 
 .card-link {
     display: block;
@@ -257,7 +250,7 @@ figure {
     overflow: hidden;
 }
 
-.card-link::after {
+.card-link:hover::after {
     content: attr(data-title);
     position: absolute;
     left: 50%;
@@ -271,16 +264,11 @@ figure {
     font-size: 0.85rem;
     line-height: 1.2;
     white-space: nowrap;
-    opacity: 0;
+    opacity: 1;
     pointer-events: none;
-    transition: opacity 0.15s ease;
     max-width: 90vw;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.card-link:hover::after {
-    opacity: 1;
 }
 
 .card-link:hover .featured-content h2,
@@ -295,10 +283,6 @@ figure {
     border: 1px solid var(--border-color);
 }
 
-.featured-post:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
 .featured-image-container img {
     width: 100%;
     border-radius: 12px;
@@ -307,7 +291,6 @@ figure {
 .featured-content h2 {
     font-size: 2.1rem;
     margin: 6px 0 4px;
-    transition: color 0.15s ease;
 }
 
 .featured-content p {
@@ -324,20 +307,24 @@ figure {
     text-align: center;
     margin: 40px auto;
     max-width: 700px;
-    color: var(--secondary-text-color);
 }
 
 .page-header p {
     font-size: 1.2rem;
+    color: var(--secondary-text-color);
 }
 
 .credits {
-    font-style: italic;
-}
-
-.credits a {
-    text-decoration: underline;
+    font-size: 1rem;
     color: var(--secondary-text-color);
+
+    a {
+        color: var(--secondary-text-color);
+    }
+
+    a:hover {
+        color: var(--accent-color);
+    }
 }
 
 .post-header {
@@ -355,21 +342,6 @@ figure {
     font-size: 3rem;
     margin: 10px 0;
     line-height: 1.2;
-}
-
-.post-main-image-container {
-    margin-bottom: 40px;
-    background-color: var(--card-bg-color);
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
-}
-
-.post-main-image {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    display: block;
 }
 
 .post-content {
@@ -402,7 +374,7 @@ figure {
     position: fixed;
     top: calc(var(--site-header-height, 80px) + 20px);
     left: calc(50% + (var(--article-width) / 2) + var(--toc-gap));
-    background: var(--card-bg-color);
+    /*background: var(--card-bg-color);*/
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 20px;
@@ -480,18 +452,15 @@ figure {
     border-radius: 8px;
     flex-grow: 1;
     min-width: 150px;
-    transition: all 0.2s;
-    background: var(--card-bg-color);
-}
-
-.tag-item:hover {
-    border-color: var(--accent-color);
-    transform: translateY(-3px);
 }
 
 .tag-name {
     font-weight: bold;
     font-size: 1.1rem;
+
+    :hover {
+        border-color: var(--accent-color);
+    }
 }
 
 .tag-count {
@@ -505,10 +474,9 @@ figure {
     top: 110%;
     left: 0;
     right: 0;
-    background-color: var(--card-bg-color);
+    background-color: var(--bg-color);
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     z-index: 100;
     max-height: 300px;
     overflow-y: auto;
@@ -529,10 +497,8 @@ figure {
     border-bottom: none;
 }
 
-.result-item.active,
-.result-item:hover {
-    background-color: var(--accent-color);
-    color: #fff;
+.result-item.active {
+    color: var(--accent-color);
 }
 
 .theme-toggle .sun-svg {
@@ -618,7 +584,6 @@ footer {
     border-radius: 8px;
     font-weight: 500;
     text-decoration: none;
-    transition: all 0.2s ease;
     display: inline-block;
 }
 
@@ -650,7 +615,7 @@ footer {
 }
 
 .wip-note {
-    background: var(--card-bg-color);
+    background: var(--bg-color);
     padding: 20px;
     border-radius: 8px;
     border: 1px solid var(--border-color);
